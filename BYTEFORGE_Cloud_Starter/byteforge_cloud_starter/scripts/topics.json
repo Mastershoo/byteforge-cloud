@@ -1,44 +1,58 @@
 [
   {
-    "title": "How recommendation algorithms learn",
-    "hook": "Your feed is learning from tiny signals.",
-    "body": "Recommendation systems can use signals such as what you watch, search for, replay, or skip. Those signals help rank content that may interest you. The exact signals differ by platform, and recommendations are predictions\u2014not mind reading.",
-    "cta": "Follow BYTEFORGE for technology, decoded.",
-    "tag": "AI & TECH"
+    "title": "The roommate's midnight deliveries",
+    "hook": "My roommate kept receiving food deliveries neither of us had ordered.",
+    "story": "It happened every night at exactly 11:11. At first we blamed an app glitch. Then I answered the door and found a tiny paper bag with a receipt inside. The only message was, 'Stop pretending you live alone.' I showed it to my roommate. He stared at it before asking, 'Did the driver see you?'",
+    "ending": "Then he admitted he'd been paying for a second person's meals for months. He just wouldn't tell me who.",
+    "cta": "Would you confront him or move out? Follow BYTEFORGE for more original stories."
   },
   {
-    "title": "Why software updates matter",
-    "hook": "That update notification is more important than it looks.",
-    "body": "Software updates can fix security weaknesses, improve stability, and add features. Delaying important updates can leave known weaknesses unpatched. Turn on automatic updates where practical, and install updates from official sources.",
-    "cta": "Follow BYTEFORGE for practical tech explained.",
-    "tag": "CYBERSECURITY"
+    "title": "The group chat betrayal",
+    "hook": "I found out my friends had a group chat without me.",
+    "story": "I wasn't upset at first. People have different chats. Then one friend sent me a screenshot meant for that group. It was a poll asking who should tell me I wasn't invited to the weekend trip. Three people voted to lie. One person voted to tell me. I asked why they hadn't said anything sooner.",
+    "ending": "They replied, 'Because I thought you already knew. You were the one who cancelled the trip.' I had never cancelled anything.",
+    "cta": "Who would you trust after that? Follow BYTEFORGE for more original stories."
   },
   {
-    "title": "What is a passkey?",
-    "hook": "Passwords may not be the only way to sign in anymore.",
-    "body": "A passkey uses public-key cryptography. Your device keeps a private key, while the service stores a matching public key. Signing in can use your device unlock method, and the private key is not sent to the website.",
-    "cta": "Follow BYTEFORGE for more security explainers.",
-    "tag": "CYBERSECURITY"
+    "title": "The interview that went backwards",
+    "hook": "My job interview ended with the interviewer asking me for a favour.",
+    "story": "The first ten minutes were normal: experience, teamwork, deadlines. Then the interviewer asked about a small tool I'd built for fun. His team had been trying to solve the exact same problem for weeks. I explained how it worked, assuming it was a test.",
+    "ending": "He closed his laptop and said, 'Forget the interview. Would you be willing to teach our team how you did that?'",
+    "cta": "Would you still ask for the job? Follow BYTEFORGE for more stories."
   },
   {
-    "title": "How does GPS estimate your location?",
-    "hook": "Your phone can estimate where it is without asking you.",
-    "body": "GPS receivers compare timing signals from multiple satellites to estimate distance. With enough satellite measurements, a receiver can calculate a position. Buildings, interference, and satellite geometry can affect accuracy.",
-    "cta": "Follow BYTEFORGE for technology, decoded.",
-    "tag": "TECH EXPLAINED"
+    "title": "The mystery birthday present",
+    "hook": "Every year, someone leaves my neighbour the same birthday present.",
+    "story": "A plain envelope appears on his doorstep on the same date. No name, no return address. Last year he opened it in front of me. Inside was a photograph of him as a child beside a person he said he had never met. On the back was one sentence: 'You promised you'd remember.'",
+    "ending": "It was the date his childhood best friend moved away, and the promise they'd made before saying goodbye.",
+    "cta": "Would you try to find the sender? Follow BYTEFORGE for more."
   },
   {
-    "title": "What is a data breach?",
-    "hook": "A data breach can expose more than a password.",
-    "body": "A data breach happens when information is accessed or disclosed without authorization. Exposed data may include names, contact details, or account credentials. Unique passwords and multi-factor authentication can reduce the impact on your accounts.",
-    "cta": "Follow BYTEFORGE for practical tech explained.",
-    "tag": "CYBERSECURITY"
+    "title": "The office fridge rule",
+    "hook": "Someone at work kept putting warning labels on my lunch.",
+    "story": "The first note said, 'Don't eat this.' I assumed it was a joke. The next day, another note appeared: 'Seriously, leave it alone.' I asked the office group chat who was doing it. Nobody answered. At lunch, the manager took my container and put it in a locked cabinet.",
+    "ending": "The fridge was being replaced, and my lunch was the surprise cake for my promotion. Everyone had been told not to touch it.",
+    "cta": "Would you have guessed that? Follow BYTEFORGE for more original stories."
   },
   {
-    "title": "Why do computers use binary?",
-    "hook": "Inside a computer, information is represented with two states.",
-    "body": "Digital circuits are designed around reliable electrical states that can represent zero and one. Groups of bits encode numbers, text, images, audio, and instructions. Complex software is built on these simple building blocks.",
-    "cta": "Follow BYTEFORGE for more tech discoveries.",
-    "tag": "COMPUTING"
+    "title": "The number saved as DON'T ANSWER",
+    "hook": "My phone showed a missed call from a contact I never saved.",
+    "story": "The contact name was 'DON'T ANSWER'. I checked my contacts and it wasn't there. A minute later, the number called again. I ignored it and got a text: 'You still have my keys.' I remembered the spare key I'd found in an old jacket pocket. I replied asking who it was.",
+    "ending": "It was my old landlord. I'd moved out two years ago, and somehow the key had travelled with me.",
+    "cta": "Would you call back? Follow BYTEFORGE for more stories."
+  },
+  {
+    "title": "The neighbour's apartment guide",
+    "hook": "My new neighbour knew things about my apartment before I moved in.",
+    "story": "He warned me which cupboard door stuck, which window rattled in the wind, and which light switch needed two presses. Then he mentioned exactly where the previous tenant had hidden a spare key. I asked how he knew. He admitted he'd helped the previous tenant move out.",
+    "ending": "He handed me a folder: the previous tenant had written a complete guide to the apartment for whoever moved in next.",
+    "cta": "Helpful or creepy? Follow BYTEFORGE for more original stories."
+  },
+  {
+    "title": "The accidental voice note",
+    "hook": "I sent a voice note complaining about my boss to my boss.",
+    "story": "I was venting to a friend after a long shift. I recorded a message, hit send, and only then noticed the chat at the top of my screen. It was my manager. Ten minutes later, my manager replied.",
+    "ending": "'You're right about the rota. Let's fix it tomorrow. Also, send the voice note to the staff group so everyone hears the new plan.'",
+    "cta": "Would you have panicked? Follow BYTEFORGE for more original stories."
   }
 ]
