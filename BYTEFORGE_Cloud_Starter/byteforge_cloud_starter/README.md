@@ -1,35 +1,21 @@
-# BYTEFORGE Cloud Starter
+# BYTEFORGE — fictional story video factory
 
-A low-cost starter pipeline for creating original vertical tech videos on a cloud schedule.
+Generates two vertical story videos per day using original fictional scripts, AI narration, on-screen captions, and muted Minecraft parkour gameplay.
 
-## What it does
-- Runs on GitHub Actions (cloud; your PC can be off).
-- Twice daily, selects the next original script from `scripts/topics.json`.
-- Creates a 1080x1920 MP4 with animated typography, captions, and an optional generated voice.
-- Saves the MP4 and metadata as a downloadable GitHub Actions artifact.
-- Uses a human review step before anything is published.
+## Gameplay rights and source
+Candidate gameplay source: OrbitalNCG, https://www.youtube.com/watch?v=u7kdVe8q5zs. The video description supplied by the channel says reuse and monetisation are allowed with credit, and prohibits re-uploading the raw footage as standalone no-copyright gameplay. Retain evidence of the terms and verify they still apply before publishing.
 
-## Honest limitations
-This starter **does not publish automatically**. YouTube API upload needs a Google Cloud project, OAuth consent and secure token setup. TikTok Direct Post requires an approved app, `video.publish` authorization and audit for public visibility. TikTok unaudited clients are restricted to private posts. The safe first milestone is generating reviewed videos in the cloud.
+This workflow deliberately does **not** scrape a YouTube watch URL. Place a creator-authorised copy at `assets/minecraft_parkour.mp4` inside the project directory, or set the repository variable `BACKGROUND_URL` to a direct authorised MP4/WebM/MOV file URL. The original gameplay audio is discarded; only generated narration is included.
 
-GitHub scheduled jobs are best-effort and can be delayed. This is not a guaranteed-to-the-minute scheduler.
+## Output
+- One original, fictional 9:16 MP4 story per scheduled run (two scheduled runs per day).
+- AI narration via Edge TTS (no paid AI API key).
+- Burned-in captions and metadata.
+- Video and metadata artifacts retained for 14 days.
+- Every story is labelled fictional and requires human review.
 
-## Setup
-1. Create a GitHub repository named `byteforge-cloud`.
-2. Upload all files from this folder to the repository's default branch.
-3. Open **Actions** and enable workflows.
-4. Run **BYTEFORGE video factory** manually once using **Run workflow**.
-5. Download the `byteforge-videos` artifact from the completed run.
-6. Review each video for factual accuracy, audio, rights and platform rules before posting.
+## Run
+Enable GitHub Actions, add the authorised background asset, then run **BYTEFORGE story factory** manually once. Scheduled runs happen twice daily at 10:17 and 17:17 UTC (GitHub schedule is best effort).
 
-## Schedule
-The workflow runs at 10:17 and 17:17 UTC daily (11:17 and 18:17 in UK winter; 11:17 and 18:17 in UK summer after daylight saving changes are not automatically accounted for by this UTC schedule). Change the cron in `.github/workflows/video-factory.yml` if needed.
-
-## Voice
-The workflow attempts a free Edge TTS voice. If network access or the voice service fails, it still renders a silent-caption video. No API key is required.
-
-## Change topics
-Edit `scripts/topics.json`. Use original wording and verify claims. Do not use unlicensed clips, music, logos or copied scripts.
-
-## Costs
-GitHub Actions has usage limits and free allowances that depend on account/repository settings. The pipeline is designed to use no paid AI API. Rendering is intentionally template-based; more advanced generative visuals or premium voices may cost money.
+## Limitations
+Generates downloadable artifacts; it does not automatically post to social platforms. No guaranteed views, income, or monetisation. Do not upload the raw gameplay as a standalone video.

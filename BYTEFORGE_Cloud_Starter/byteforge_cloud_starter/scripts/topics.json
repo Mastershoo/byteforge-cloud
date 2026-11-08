@@ -1,44 +1,142 @@
 [
   {
-    "title": "How recommendation algorithms learn",
-    "hook": "Your feed is learning from tiny signals.",
-    "body": "Recommendation systems can use signals such as what you watch, search for, replay, or skip. Those signals help rank content that may interest you. The exact signals differ by platform, and recommendations are predictions\u2014not mind reading.",
-    "cta": "Follow BYTEFORGE for technology, decoded.",
-    "tag": "AI & TECH"
+    "title": "The roommate's midnight deliveries",
+    "hook": "My roommate kept receiving food deliveries neither of us had ordered.",
+    "story": "It happened every night at exactly 11:11. At first we blamed an app glitch. Then I answered the door and found a tiny paper bag with a receipt inside. The only message was, 'Stop pretending you live alone.' I showed it to my roommate. He stared at it before asking, 'Did the driver see you?'",
+    "ending": "Then he admitted he'd been paying for a second person's meals for months. He just wouldn't tell me who.",
+    "cta": "Would you confront him or move out? Follow BYTEFORGE for more original stories."
   },
   {
-    "title": "Why software updates matter",
-    "hook": "That update notification is more important than it looks.",
-    "body": "Software updates can fix security weaknesses, improve stability, and add features. Delaying important updates can leave known weaknesses unpatched. Turn on automatic updates where practical, and install updates from official sources.",
-    "cta": "Follow BYTEFORGE for practical tech explained.",
-    "tag": "CYBERSECURITY"
+    "title": "The group chat betrayal",
+    "hook": "I found out my friends had a group chat without me.",
+    "story": "I wasn't upset at first. People have different chats. Then one friend sent me a screenshot meant for that group. It was a poll asking who should tell me I wasn't invited to the weekend trip. Three people voted to lie. One person voted to tell me. I asked why they hadn't said anything sooner.",
+    "ending": "They replied, 'Because I thought you already knew. You were the one who cancelled the trip.' I had never cancelled anything.",
+    "cta": "Who would you trust after that? Follow BYTEFORGE for more original stories."
   },
   {
-    "title": "What is a passkey?",
-    "hook": "Passwords may not be the only way to sign in anymore.",
-    "body": "A passkey uses public-key cryptography. Your device keeps a private key, while the service stores a matching public key. Signing in can use your device unlock method, and the private key is not sent to the website.",
-    "cta": "Follow BYTEFORGE for more security explainers.",
-    "tag": "CYBERSECURITY"
+    "title": "The interview that went backwards",
+    "hook": "My job interview ended with the interviewer asking me for a favour.",
+    "story": "The first ten minutes were normal: experience, teamwork, deadlines. Then the interviewer asked about a small tool I'd built for fun. His team had been trying to solve the exact same problem for weeks. I explained how it worked, assuming it was a test.",
+    "ending": "He closed his laptop and said, 'Forget the interview. Would you be willing to teach our team how you did that?'",
+    "cta": "Would you still ask for the job? Follow BYTEFORGE for more stories."
   },
   {
-    "title": "How does GPS estimate your location?",
-    "hook": "Your phone can estimate where it is without asking you.",
-    "body": "GPS receivers compare timing signals from multiple satellites to estimate distance. With enough satellite measurements, a receiver can calculate a position. Buildings, interference, and satellite geometry can affect accuracy.",
-    "cta": "Follow BYTEFORGE for technology, decoded.",
-    "tag": "TECH EXPLAINED"
+    "title": "The mystery birthday present",
+    "hook": "Every year, someone leaves my neighbour the same birthday present.",
+    "story": "A plain envelope appears on his doorstep on the same date. No name, no return address. Last year he opened it in front of me. Inside was a photograph of him as a child beside a person he said he had never met. On the back was one sentence: 'You promised you'd remember.'",
+    "ending": "It was the date his childhood best friend moved away, and the promise they'd made before saying goodbye.",
+    "cta": "Would you try to find the sender? Follow BYTEFORGE for more."
   },
   {
-    "title": "What is a data breach?",
-    "hook": "A data breach can expose more than a password.",
-    "body": "A data breach happens when information is accessed or disclosed without authorization. Exposed data may include names, contact details, or account credentials. Unique passwords and multi-factor authentication can reduce the impact on your accounts.",
-    "cta": "Follow BYTEFORGE for practical tech explained.",
-    "tag": "CYBERSECURITY"
+    "title": "The office fridge rule",
+    "hook": "Someone at work kept putting warning labels on my lunch.",
+    "story": "The first note said, 'Don't eat this.' I assumed it was a joke. The next day, another note appeared: 'Seriously, leave it alone.' I asked the office group chat who was doing it. Nobody answered. At lunch, the manager took my container and put it in a locked cabinet.",
+    "ending": "The fridge was being replaced, and my lunch was the surprise cake for my promotion. Everyone had been told not to touch it.",
+    "cta": "Would you have guessed that? Follow BYTEFORGE for more original stories."
   },
   {
-    "title": "Why do computers use binary?",
-    "hook": "Inside a computer, information is represented with two states.",
-    "body": "Digital circuits are designed around reliable electrical states that can represent zero and one. Groups of bits encode numbers, text, images, audio, and instructions. Complex software is built on these simple building blocks.",
-    "cta": "Follow BYTEFORGE for more tech discoveries.",
-    "tag": "COMPUTING"
+    "title": "The number saved as DON'T ANSWER",
+    "hook": "My phone showed a missed call from a contact I never saved.",
+    "story": "The contact name was 'DON'T ANSWER'. I checked my contacts and it wasn't there. A minute later, the number called again. I ignored it and got a text: 'You still have my keys.' I remembered the spare key I'd found in an old jacket pocket. I replied asking who it was.",
+    "ending": "It was my old landlord. I'd moved out two years ago, and somehow the key had travelled with me.",
+    "cta": "Would you call back? Follow BYTEFORGE for more stories."
+  },
+  {
+    "title": "The neighbour's apartment guide",
+    "hook": "My new neighbour knew things about my apartment before I moved in.",
+    "story": "He warned me which cupboard door stuck, which window rattled in the wind, and which light switch needed two presses. Then he mentioned exactly where the previous tenant had hidden a spare key. I asked how he knew. He admitted he'd helped the previous tenant move out.",
+    "ending": "He handed me a folder: the previous tenant had written a complete guide to the apartment for whoever moved in next.",
+    "cta": "Helpful or creepy? Follow BYTEFORGE for more original stories."
+  },
+  {
+    "title": "The accidental voice note",
+    "hook": "I sent a voice note complaining about my boss to my boss.",
+    "story": "I was venting to a friend after a long shift. I recorded a message, hit send, and only then noticed the chat at the top of my screen. It was my manager. Ten minutes later, my manager replied.",
+    "ending": "'You're right about the rota. Let's fix it tomorrow. Also, send the voice note to the staff group so everyone hears the new plan.'",
+    "cta": "Would you have panicked? Follow BYTEFORGE for more original stories."
+  },
+  {
+    "title": "The package on the wrong doorstep",
+    "hook": "A parcel arrived at my flat with my name on it, but I hadn't ordered anything.",
+    "story": "The label had my full name and my exact address. Inside was a cheap keyring and a handwritten note saying, 'You left this behind.' I asked the neighbours if anyone knew the sender. Nobody did. Then I noticed the parcel had been posted from the town where I grew up.",
+    "ending": "My mum finally admitted she'd found it in an old family photo album and sent it because it was the last thing my late grandad had bought me.",
+    "cta": "Would you have opened it straight away? Follow BYTEFORGE for more original stories."
+  },
+  {
+    "title": "The wedding seating chart",
+    "hook": "My cousin changed the wedding seating chart and put me beside someone I hadn't spoken to in years.",
+    "story": "I assumed it was a mistake until I saw the name clearly printed beside mine. At the reception, the person sat down and immediately apologised for an argument we'd had at school. I hadn't even remembered it. Then they slid a small envelope across the table.",
+    "ending": "Inside was a photograph of us as kids and a note: 'I kept this because you were the first person who was nice to me here.'",
+    "cta": "Would you give an old friendship another chance? Follow BYTEFORGE for more."
+  },
+  {
+    "title": "The mystery playlist",
+    "hook": "A stranger kept adding songs to a playlist I had made years ago.",
+    "story": "The playlist was private until I changed the setting by accident. Every few days, a new song appeared. I checked the account history and found no name, just a familiar profile picture from an old school group. I sent a message asking why they were adding songs.",
+    "ending": "They replied that the playlist had been the soundtrack to a road trip we took as teenagers. They'd found it again and were trying to remember the rest of the journey.",
+    "cta": "Would you message them back? Follow BYTEFORGE for more original stories."
+  },
+  {
+    "title": "The lift button",
+    "hook": "Someone in my apartment building kept pressing my floor before getting into the lift.",
+    "story": "It happened three evenings in a row. I'd enter the lift, and the button for my floor was already lit. I asked the caretaker if the lift was faulty. He checked the service log and found nothing. On the fourth evening, I waited in the lobby instead of going straight up.",
+    "ending": "An elderly neighbour came over and explained she pressed it every day because she'd noticed I carried heavy shopping and wanted the lift waiting for me.",
+    "cta": "Creepy coincidence or thoughtful neighbour? Follow BYTEFORGE for more."
+  },
+  {
+    "title": "The wrong group project",
+    "hook": "I got added to a university group project with people from a different course.",
+    "story": "I thought someone had mistyped my email. But the group had a full plan, deadlines and a shared folder. I messaged the organiser, who said the lecturer had added me. I checked the module page and realised the project title was familiar, but the team names weren't.",
+    "ending": "The lecturer had accidentally merged two groups. We spotted it early, split the work, and ended up sharing the best parts of both projects.",
+    "cta": "Would you have stayed in the group? Follow BYTEFORGE for more original stories."
+  },
+  {
+    "title": "The late-night piano",
+    "hook": "My neighbour complained about piano music, but nobody in my flat owns a piano.",
+    "story": "The building manager sent a message asking everyone to keep the noise down after midnight. The next night, the same soft melody played again. I followed the sound to the stairwell, where it was loudest beside an old storage room. The caretaker unlocked it and found a small music box on a shelf.",
+    "ending": "It belonged to a previous tenant, and its timer had been set to play every night at midnight.",
+    "cta": "Would you have investigated the sound? Follow BYTEFORGE for more."
+  },
+  {
+    "title": "The forgotten birthday",
+    "hook": "My best friend forgot my birthday, then showed up with a cake a week later.",
+    "story": "I didn't say anything when the day passed. A week later, they arrived with a cake and a handwritten card. I was ready to joke about the delay, but the card explained they'd been working extra shifts to replace a camera they'd borrowed and accidentally damaged months earlier.",
+    "ending": "They remembered the date. They'd just wanted to make things right before celebrating me.",
+    "cta": "Would you be annoyed or touched? Follow BYTEFORGE for more original stories."
+  },
+  {
+    "title": "The empty shop",
+    "hook": "A tiny shop near my house looked closed for months, but every morning its sign changed.",
+    "story": "One day it said 'Back soon'. The next it said 'Not today'. Then it displayed a different handwritten message every morning. I finally knocked on the door and an older man answered. He said he wasn't running a shop anymore; he was practising lettering for his granddaughter's art exam.",
+    "ending": "The messages were her daily design prompts, and he had been leaving them in the window so she could photograph them on her way to school.",
+    "cta": "What's the most unexpected hobby you've seen? Follow BYTEFORGE for more."
+  },
+  {
+    "title": "The shared umbrella",
+    "hook": "Someone kept leaving an umbrella outside my door whenever it rained.",
+    "story": "It was always the same blue umbrella, neatly folded with a tiny label saying 'Borrow me'. I used it twice and left it back in the same spot. One day I added a thank-you note. The next morning, the note had a reply: 'You're welcome. I borrowed yours last winter.'",
+    "ending": "I recognised the handwriting. It was my neighbour from downstairs, whose umbrella I'd returned without ever knowing it was theirs.",
+    "cta": "Would you keep the umbrella tradition going? Follow BYTEFORGE for more."
+  },
+  {
+    "title": "The voice behind the curtain",
+    "hook": "During a family video call, someone kept whispering my name from another room.",
+    "story": "I muted my microphone and checked whether a video was playing nearby. Nothing. The whisper came again, so I asked my family if they heard it. My aunt looked confused and walked toward the spare room. A few seconds later she returned holding a small smart speaker.",
+    "ending": "It had been connected to an old family account and was reading out a reminder my cousin had set months earlier.",
+    "cta": "Have you had a tech mix-up like this? Follow BYTEFORGE for more."
+  },
+  {
+    "title": "The cafe receipt",
+    "hook": "A cafe receipt had a message printed under the total that changed my day.",
+    "story": "I ordered a coffee and noticed the receipt said, 'Ask for the blue envelope.' I thought it was a promotion, but the barista handed me a sealed envelope from a drawer. Inside was a thank-you note from someone I'd helped during a bus delay months earlier.",
+    "ending": "They worked at the cafe and had recognised my name on the loyalty app. The envelope contained a voucher for a coffee, not a mystery prize.",
+    "cta": "Would you have asked for the envelope? Follow BYTEFORGE for more."
+  },
+  {
+    "title": "The borrowed book",
+    "hook": "I bought a second-hand book and found a letter addressed to someone with my exact name.",
+    "story": "The letter was folded between two chapters and dated twenty years earlier. It described a small family disagreement and ended with an apology. I checked the return address, but the house had been demolished. I took the letter to the bookshop, hoping they might know the previous owner.",
+    "ending": "The shopkeeper recognised the handwriting: it was his own. He'd written it to his brother and never posted it. He asked if he could finally send a photo of it.",
+    "cta": "Would you return the letter? Follow BYTEFORGE for more original stories."
   }
 ]
