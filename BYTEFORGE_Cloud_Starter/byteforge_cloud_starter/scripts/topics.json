@@ -54,5 +54,89 @@
     "story": "I was venting to a friend after a long shift. I recorded a message, hit send, and only then noticed the chat at the top of my screen. It was my manager. Ten minutes later, my manager replied.",
     "ending": "'You're right about the rota. Let's fix it tomorrow. Also, send the voice note to the staff group so everyone hears the new plan.'",
     "cta": "Would you have panicked? Follow BYTEFORGE for more original stories."
+  },
+  {
+    "title": "The package on the wrong doorstep",
+    "hook": "A parcel arrived at my flat with my name on it, but I hadn't ordered anything.",
+    "story": "The label had my full name and my exact address. Inside was a cheap keyring and a handwritten note saying, 'You left this behind.' I asked the neighbours if anyone knew the sender. Nobody did. Then I noticed the parcel had been posted from the town where I grew up.",
+    "ending": "My mum finally admitted she'd found it in an old family photo album and sent it because it was the last thing my late grandad had bought me.",
+    "cta": "Would you have opened it straight away? Follow BYTEFORGE for more original stories."
+  },
+  {
+    "title": "The wedding seating chart",
+    "hook": "My cousin changed the wedding seating chart and put me beside someone I hadn't spoken to in years.",
+    "story": "I assumed it was a mistake until I saw the name clearly printed beside mine. At the reception, the person sat down and immediately apologised for an argument we'd had at school. I hadn't even remembered it. Then they slid a small envelope across the table.",
+    "ending": "Inside was a photograph of us as kids and a note: 'I kept this because you were the first person who was nice to me here.'",
+    "cta": "Would you give an old friendship another chance? Follow BYTEFORGE for more."
+  },
+  {
+    "title": "The mystery playlist",
+    "hook": "A stranger kept adding songs to a playlist I had made years ago.",
+    "story": "The playlist was private until I changed the setting by accident. Every few days, a new song appeared. I checked the account history and found no name, just a familiar profile picture from an old school group. I sent a message asking why they were adding songs.",
+    "ending": "They replied that the playlist had been the soundtrack to a road trip we took as teenagers. They'd found it again and were trying to remember the rest of the journey.",
+    "cta": "Would you message them back? Follow BYTEFORGE for more original stories."
+  },
+  {
+    "title": "The lift button",
+    "hook": "Someone in my apartment building kept pressing my floor before getting into the lift.",
+    "story": "It happened three evenings in a row. I'd enter the lift, and the button for my floor was already lit. I asked the caretaker if the lift was faulty. He checked the service log and found nothing. On the fourth evening, I waited in the lobby instead of going straight up.",
+    "ending": "An elderly neighbour came over and explained she pressed it every day because she'd noticed I carried heavy shopping and wanted the lift waiting for me.",
+    "cta": "Creepy coincidence or thoughtful neighbour? Follow BYTEFORGE for more."
+  },
+  {
+    "title": "The wrong group project",
+    "hook": "I got added to a university group project with people from a different course.",
+    "story": "I thought someone had mistyped my email. But the group had a full plan, deadlines and a shared folder. I messaged the organiser, who said the lecturer had added me. I checked the module page and realised the project title was familiar, but the team names weren't.",
+    "ending": "The lecturer had accidentally merged two groups. We spotted it early, split the work, and ended up sharing the best parts of both projects.",
+    "cta": "Would you have stayed in the group? Follow BYTEFORGE for more original stories."
+  },
+  {
+    "title": "The late-night piano",
+    "hook": "My neighbour complained about piano music, but nobody in my flat owns a piano.",
+    "story": "The building manager sent a message asking everyone to keep the noise down after midnight. The next night, the same soft melody played again. I followed the sound to the stairwell, where it was loudest beside an old storage room. The caretaker unlocked it and found a small music box on a shelf.",
+    "ending": "It belonged to a previous tenant, and its timer had been set to play every night at midnight.",
+    "cta": "Would you have investigated the sound? Follow BYTEFORGE for more."
+  },
+  {
+    "title": "The forgotten birthday",
+    "hook": "My best friend forgot my birthday, then showed up with a cake a week later.",
+    "story": "I didn't say anything when the day passed. A week later, they arrived with a cake and a handwritten card. I was ready to joke about the delay, but the card explained they'd been working extra shifts to replace a camera they'd borrowed and accidentally damaged months earlier.",
+    "ending": "They remembered the date. They'd just wanted to make things right before celebrating me.",
+    "cta": "Would you be annoyed or touched? Follow BYTEFORGE for more original stories."
+  },
+  {
+    "title": "The empty shop",
+    "hook": "A tiny shop near my house looked closed for months, but every morning its sign changed.",
+    "story": "One day it said 'Back soon'. The next it said 'Not today'. Then it displayed a different handwritten message every morning. I finally knocked on the door and an older man answered. He said he wasn't running a shop anymore; he was practising lettering for his granddaughter's art exam.",
+    "ending": "The messages were her daily design prompts, and he had been leaving them in the window so she could photograph them on her way to school.",
+    "cta": "What's the most unexpected hobby you've seen? Follow BYTEFORGE for more."
+  },
+  {
+    "title": "The shared umbrella",
+    "hook": "Someone kept leaving an umbrella outside my door whenever it rained.",
+    "story": "It was always the same blue umbrella, neatly folded with a tiny label saying 'Borrow me'. I used it twice and left it back in the same spot. One day I added a thank-you note. The next morning, the note had a reply: 'You're welcome. I borrowed yours last winter.'",
+    "ending": "I recognised the handwriting. It was my neighbour from downstairs, whose umbrella I'd returned without ever knowing it was theirs.",
+    "cta": "Would you keep the umbrella tradition going? Follow BYTEFORGE for more."
+  },
+  {
+    "title": "The voice behind the curtain",
+    "hook": "During a family video call, someone kept whispering my name from another room.",
+    "story": "I muted my microphone and checked whether a video was playing nearby. Nothing. The whisper came again, so I asked my family if they heard it. My aunt looked confused and walked toward the spare room. A few seconds later she returned holding a small smart speaker.",
+    "ending": "It had been connected to an old family account and was reading out a reminder my cousin had set months earlier.",
+    "cta": "Have you had a tech mix-up like this? Follow BYTEFORGE for more."
+  },
+  {
+    "title": "The cafe receipt",
+    "hook": "A cafe receipt had a message printed under the total that changed my day.",
+    "story": "I ordered a coffee and noticed the receipt said, 'Ask for the blue envelope.' I thought it was a promotion, but the barista handed me a sealed envelope from a drawer. Inside was a thank-you note from someone I'd helped during a bus delay months earlier.",
+    "ending": "They worked at the cafe and had recognised my name on the loyalty app. The envelope contained a voucher for a coffee, not a mystery prize.",
+    "cta": "Would you have asked for the envelope? Follow BYTEFORGE for more."
+  },
+  {
+    "title": "The borrowed book",
+    "hook": "I bought a second-hand book and found a letter addressed to someone with my exact name.",
+    "story": "The letter was folded between two chapters and dated twenty years earlier. It described a small family disagreement and ended with an apology. I checked the return address, but the house had been demolished. I took the letter to the bookshop, hoping they might know the previous owner.",
+    "ending": "The shopkeeper recognised the handwriting: it was his own. He'd written it to his brother and never posted it. He asked if he could finally send a photo of it.",
+    "cta": "Would you return the letter? Follow BYTEFORGE for more original stories."
   }
 ]
