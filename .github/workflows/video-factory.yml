@@ -1,0 +1,70 @@
+
+name: BYTEFORGE video factory
+
+on:
+  workflow_dispatch:
+    inputs:
+      topic_index:
+        description: "Topic index (0-5)"
+        required: false
+        default: "0"
+  schedule:
+    - cron: "17 10,17 * * *"
+
+permissions:
+  contents: read
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install FFmpeg
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+
+      - name: Install Python packages
+        run: pip install -r requirements.txt
+        working-directory: BYTEFORGE_Cloud_Starter
+
+      - name: Choose topic
+        id: topic
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "index=${{ inputs.topic_index }}" >> "$GITHUB_OUTPUT"
+          else
+            hour=$(date -u +%H)
+            day=$(date -u +%j)
+            if [ "$hour" -lt 14 ]; then slot=0; else slot=1; fi
+            index=$(( (10#$day * 2 + slot) % 6 ))
+            echo "index=$index" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Generate video
+        run: python scripts/render.py --index "${{ steps.topic.outputs.index }}"
+        working-directory: BYTEFORGE_Cloud_Starter
+
+      - name: Upload video artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: byteforge-videos-${{ github.run_number }}
+          path: BYTEFORGE_Cloud_Starter/output/*.mp4
+          if-no-files-found: error
+          retention-days: 14
+
+      - name: Upload metadata
+        uses: actions/upload-artifact@v4
+        with:
+          name: byteforge-metadata-${{ github.run_number }}
+          path: BYTEFORGE_Cloud_Starter/output/*.json
+          retention-days: 14
