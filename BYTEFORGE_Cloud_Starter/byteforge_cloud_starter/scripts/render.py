@@ -66,20 +66,20 @@ def main():
         final = OUT / f"{slug}.mp4"
         if not voice(script, audio):
             raise RuntimeError("Narration unavailable. Failing the job rather than silently producing a mute video.")
-        caption_duration = write_captions(script, captions)
-        duration = max(25, min(55, caption_duration + 0.5))
+        narration_duration = audio_duration(audio)
+        write_captions(script, captions, narration_duration)
         # -an on the gameplay input is intentional: no audio from the source video is retained.
         srt_path = str(captions.resolve()).replace("\\", "/").replace(":", "\\:")
         video_filter = (
             "scale=1080:1920:force_original_aspect_ratio=increase,"
             "crop=1080:1920,setsar=1,"
-            f"subtitles='{srt_path}':force_style='FontName=DejaVu Sans,FontSize=18,Bold=1,"
+            f"subtitles='{srt_path}':force_style='FontName=DejaVu Sans,FontSize=52,Bold=1,"
             "PrimaryColour=&H00FFFFFF,OutlineColour=&H00101010,BorderStyle=1,"
             "Outline=3,Shadow=1,Alignment=2,MarginV=250'"
         )
         run([
             "ffmpeg", "-y", "-stream_loop", "-1", "-i", str(background), "-i", str(audio),
-            "-t", f"{duration:.1f}", "-vf", video_filter,
+            "-vf", video_filter,
             "-map", "0:v:0", "-map", "1:a:0", "-c:v", "libx264", "-preset", "veryfast",
             "-crf", "23", "-c:a", "aac", "-b:a", "160k", "-shortest",
             "-movflags", "+faststart", "-map_metadata", "-1", str(final)
