@@ -1,0 +1,44 @@
+[
+  {
+    "title": "How recommendation algorithms learn",
+    "hook": "Your feed is learning from tiny signals.",
+    "body": "Recommendation systems can use signals such as what you watch, search for, replay, or skip. Those signals help rank content that may interest you. The exact signals differ by platform, and recommendations are predictions\u2014not mind reading.",
+    "cta": "Follow BYTEFORGE for technology, decoded.",
+    "tag": "AI & TECH"
+  },
+  {
+    "title": "Why software updates matter",
+    "hook": "That update notification is more important than it looks.",
+    "body": "Software updates can fix security weaknesses, improve stability, and add features. Delaying important updates can leave known weaknesses unpatched. Turn on automatic updates where practical, and install updates from official sources.",
+    "cta": "Follow BYTEFORGE for practical tech explained.",
+    "tag": "CYBERSECURITY"
+  },
+  {
+    "title": "What is a passkey?",
+    "hook": "Passwords may not be the only way to sign in anymore.",
+    "body": "A passkey uses public-key cryptography. Your device keeps a private key, while the service stores a matching public key. Signing in can use your device unlock method, and the private key is not sent to the website.",
+    "cta": "Follow BYTEFORGE for more security explainers.",
+    "tag": "CYBERSECURITY"
+  },
+  {
+    "title": "How does GPS estimate your location?",
+    "hook": "Your phone can estimate where it is without asking you.",
+    "body": "GPS receivers compare timing signals from multiple satellites to estimate distance. With enough satellite measurements, a receiver can calculate a position. Buildings, interference, and satellite geometry can affect accuracy.",
+    "cta": "Follow BYTEFORGE for technology, decoded.",
+    "tag": "TECH EXPLAINED"
+  },
+  {
+    "title": "What is a data breach?",
+    "hook": "A data breach can expose more than a password.",
+    "body": "A data breach happens when information is accessed or disclosed without authorization. Exposed data may include names, contact details, or account credentials. Unique passwords and multi-factor authentication can reduce the impact on your accounts.",
+    "cta": "Follow BYTEFORGE for practical tech explained.",
+    "tag": "CYBERSECURITY"
+  },
+  {
+    "title": "Why do computers use binary?",
+    "hook": "Inside a computer, information is represented with two states.",
+    "body": "Digital circuits are designed around reliable electrical states that can represent zero and one. Groups of bits encode numbers, text, images, audio, and instructions. Complex software is built on these simple building blocks.",
+    "cta": "Follow BYTEFORGE for more tech discoveries.",
+    "tag": "COMPUTING"
+  }
+]
