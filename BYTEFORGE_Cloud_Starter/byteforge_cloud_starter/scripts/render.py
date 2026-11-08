@@ -1,97 +1,101 @@
-import argparse, json, math, os, random, subprocess, textwrap
+import argparse, asyncio, json, os, subprocess, sys
 from pathlib import Path
-from PIL import Image, ImageDraw, ImageFont
-import asyncio
 
-W, H = 1080, 1920
 OUT = Path("output")
+ASSETS = Path("assets")
 OUT.mkdir(exist_ok=True)
+ASSETS.mkdir(exist_ok=True)
 
-def font(size, bold=False):
-    candidates = [
-        "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf" if bold else "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf",
-        "/usr/share/fonts/truetype/liberation2/LiberationSans-Bold.ttf" if bold else "/usr/share/fonts/truetype/liberation2/LiberationSans-Regular.ttf"
-    ]
-    for p in candidates:
-        if Path(p).exists(): return ImageFont.truetype(p, size)
-    return ImageFont.load_default()
+def run(cmd):
+    subprocess.run(cmd, check=True)
 
-def wrap(draw, text, f, max_width):
-    words, lines, line = text.split(), [], ""
-    for word in words:
-        test = (line + " " + word).strip()
-        if draw.textbbox((0,0), test, font=f)[2] <= max_width: line = test
-        else:
-            if line: lines.append(line)
-            line = word
-    if line: lines.append(line)
-    return lines
-
-def frame(topic, phase, total):
-    im = Image.new("RGB", (W,H), (7,12,25))
-    d = ImageDraw.Draw(im)
-    # subtle moving grid / orbit accents
-    shift = int(phase * 2) % 100
-    for x in range(-100+shift, W, 100):
-        d.line((x,0,x,H), fill=(13,29,53), width=2)
-    for y in range(0,H,100):
-        d.line((0,y,W,y), fill=(13,29,53), width=2)
-    d.ellipse((650+shift,220,1050+shift,620), outline=(0,125,210), width=5)
-    d.ellipse((710+shift,280,990+shift,560), outline=(0,70,130), width=3)
-    d.rounded_rectangle((65,100,1015,180), radius=30, fill=(0,65,110))
-    d.text((100,118),"BYTEFORGE  /  TECHNOLOGY. DECODED.",font=font(34,True),fill=(235,247,255))
-    hook = topic["hook"]
-    lines = wrap(d, hook, font(76,True), 900)
-    y = 510
-    for line in lines:
-        d.text((85,y),line,font=font(76,True),fill=(70,205,255),stroke_width=1)
-        y += 100
-    body = topic["body"]
-    blines = wrap(d, body, font(45), 900)
-    y = 900
-    for line in blines:
-        d.text((85,y),line,font=font(45),fill=(235,241,250))
-        y += 68
-    d.rounded_rectangle((70,1500,1010,1660),radius=35,outline=(0,155,230),width=4)
-    d.text((105,1545),topic["cta"],font=font(38,True),fill=(255,255,255))
-    d.text((85,1780),topic["tag"]+"  •  BYTEFORGE LABS",font=font(30,True),fill=(115,165,205))
-    d.text((85,1840),"Educational content. Verify important claims independently.",font=font(23),fill=(130,145,165))
-    return im
-
-async def make_voice(text, path):
+def voice(text, path):
     try:
         import edge_tts
-        communicate = edge_tts.Communicate(text, "en-US-GuyNeural")
-        await communicate.save(str(path))
+        async def make():
+            await edge_tts.Communicate(text, "en-US-GuyNeural", rate="+5%").save(str(path))
+        asyncio.run(make())
         return True
-    except Exception as e:
-        print("Voice generation unavailable; continuing without audio:", e)
+    except Exception as exc:
+        print(f"Voice generation failed: {exc}", file=sys.stderr)
         return False
 
-def main():
-    ap=argparse.ArgumentParser()
-    ap.add_argument("--index", type=int, default=0)
-    args=ap.parse_args()
-    topics=json.loads(Path("scripts/topics.json").read_text(encoding="utf-8"))
-    topic=topics[args.index % len(topics)]
-    slug="video_{:02d}".format(args.index % len(topics)+1)
-    # Render a clean vertical card video; subtle movement comes from changing frame phase.
-    tmp=OUT/(slug+"_frames")
-    tmp.mkdir(exist_ok=True)
-    for i in range(90):
-        frame(topic, i, 90).save(tmp/("frame_%04d.png"%i))
-    silent=OUT/(slug+"_silent.mp4")
-    subprocess.run(["ffmpeg","-y","-loglevel","error","-framerate","30","-i",str(tmp/"frame_%04d.png"),"-c:v","libx264","-pix_fmt","yuv420p","-movflags","+faststart",str(silent)],check=True)
-    audio=OUT/(slug+".mp3")
-    script=topic["hook"]+" "+topic["body"]+" "+topic["cta"]
-    has_audio=asyncio.run(make_voice(script,audio))
-    final=OUT/(slug+".mp4")
-    if has_audio:
-        subprocess.run(["ffmpeg","-y","-loglevel","error","-i",str(silent),"-i",str(audio),"-shortest","-c:v","copy","-c:a","aac","-b:a","128k","-movflags","+faststart",str(final)],check=True)
-        silent.unlink()
-    else:
-        silent.rename(final)
-    (OUT/(slug+".json")).write_text(json.dumps({"title":topic["title"],"caption":topic["title"]+" | "+topic["cta"]+" #technology #AI #cybersecurity","script":script,"review_required":True},indent=2),encoding="utf-8")
-    print("Created",final)
+def get_background():
+    local = ASSETS / "minecraft_parkour.mp4"
+    if local.exists():
+        return local
+    url = os.getenv("BACKGROUND_URL", "").strip()
+    if not url:
+        raise RuntimeError("Add an authorised gameplay file at assets/minecraft_parkour.mp4 or set BACKGROUND_URL to a direct authorised MP4/WebM/MOV URL.")
+    if not url.lower().split("?")[0].endswith((".mp4", ".webm", ".mov")):
+        raise RuntimeError("BACKGROUND_URL must be a direct media-file URL, not a YouTube watch page. Do not scrape YouTube.")
+    run(["curl", "-fL", "--retry", "3", "--max-time", "180", "-o", str(local), url])
+    return local
 
-if __name__=="__main__": main()
+def srt_time(seconds):
+    ms = int((seconds - int(seconds)) * 1000)
+    total = int(seconds)
+    return f"00:{total // 60:02d}:{total % 60:02d},{ms:03d}"
+
+def write_captions(text, path):
+    words = text.split()
+    chunks = [" ".join(words[i:i+5]) for i in range(0, len(words), 5)]
+    block = []
+    cursor = 0.0
+    for number, chunk in enumerate(chunks, 1):
+        duration = max(1.0, len(chunk.split()) * 0.36)
+        block.extend([str(number), f"{srt_time(cursor)} --> {srt_time(cursor + duration)}", chunk.upper(), ""])
+        cursor += duration
+    path.write_text("\n".join(block), encoding="utf-8")
+    return cursor
+
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--index", type=int, default=0)
+    parser.add_argument("--batch", type=int, default=1)
+    args = parser.parse_args()
+    topics = json.loads(Path("scripts/topics.json").read_text(encoding="utf-8"))
+    background = get_background()
+    for offset in range(args.batch):
+        idx = (args.index + offset) % len(topics)
+        story = topics[idx]
+        script = " ".join([story["hook"], story["story"], story["ending"], story["cta"]])
+        slug = f"byteforge_story_{idx+1:02d}"
+        audio = OUT / f"{slug}.mp3"
+        captions = OUT / f"{slug}.srt"
+        final = OUT / f"{slug}.mp4"
+        if not voice(script, audio):
+            raise RuntimeError("Narration unavailable. Failing the job rather than silently producing a mute video.")
+        caption_duration = write_captions(script, captions)
+        duration = max(25, min(55, caption_duration + 0.5))
+        # -an on the gameplay input is intentional: no audio from the source video is retained.
+        srt_path = str(captions.resolve()).replace("\\", "/").replace(":", "\\:")
+        video_filter = (
+            "scale=1080:1920:force_original_aspect_ratio=increase,"
+            "crop=1080:1920,setsar=1,"
+            f"subtitles='{srt_path}':force_style='FontName=DejaVu Sans,FontSize=18,Bold=1,"
+            "PrimaryColour=&H00FFFFFF,OutlineColour=&H00101010,BorderStyle=1,"
+            "Outline=3,Shadow=1,Alignment=2,MarginV=250'"
+        )
+        run([
+            "ffmpeg", "-y", "-stream_loop", "-1", "-i", str(background), "-i", str(audio),
+            "-t", f"{duration:.1f}", "-vf", video_filter,
+            "-map", "0:v:0", "-map", "1:a:0", "-c:v", "libx264", "-preset", "veryfast",
+            "-crf", "23", "-c:a", "aac", "-b:a", "160k", "-shortest",
+            "-movflags", "+faststart", "-map_metadata", "-1", str(final)
+        ])
+        metadata = {
+            "title": story["title"],
+            "description": story["cta"] + "\n\nMinecraft gameplay credit: Orbital / OrbitalNCG — https://www.youtube.com/watch?v=u7kdVe8q5zs",
+            "script": script,
+            "fictional_story": True,
+            "review_required": True,
+            "source_gameplay_audio": "removed",
+            "gameplay_source": "OrbitalNCG — https://www.youtube.com/watch?v=u7kdVe8q5zs",
+            "rights_reminder": "Confirm the creator's current reuse terms and provide required attribution before publishing."
+        }
+        (OUT / f"{slug}.json").write_text(json.dumps(metadata, indent=2), encoding="utf-8")
+        print(f"Created {final}")
+
+if __name__ == "__main__":
+    main()
