@@ -8,7 +8,7 @@ Candidate gameplay source: OrbitalNCG, https://www.youtube.com/watch?v=u7kdVe8q5
 This workflow deliberately does **not** scrape a YouTube watch URL. Place a creator-authorised copy at `assets/minecraft_parkour.mp4` inside the project directory, or set the repository variable `BACKGROUND_URL` to a direct authorised MP4/WebM/MOV file URL. The original gameplay audio is discarded; only generated narration is included.
 
 ## Output
-- Two original, fictional 9:16 MP4 stories per scheduled run.
+- One original, fictional 9:16 MP4 story per scheduled run (two scheduled runs per day).
 - AI narration via Edge TTS (no paid AI API key).
 - Burned-in captions and metadata.
 - Video and metadata artifacts retained for 14 days.
