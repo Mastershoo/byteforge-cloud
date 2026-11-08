@@ -1,4 +1,4 @@
-import argparse, asyncio, json, os, subprocess, sys
+import argparse, asyncio, json, os, random, subprocess, sys
 from pathlib import Path
 
 OUT = Path("output")
@@ -21,12 +21,21 @@ def voice(text, path):
         return False
 
 def get_background():
+    # Prefer the user's full local library. One clip is chosen at random per video.
+    library = ASSETS / "gameplay"
+    candidates = sorted(library.glob("parkour_*.mp4")) if library.exists() else []
+    if not candidates:
+        candidates = sorted(ASSETS.glob("parkour_*.mp4"))
+    if candidates:
+        chosen = random.choice(candidates)
+        print(f"Using gameplay clip: {chosen.name}")
+        return chosen
     local = ASSETS / "minecraft_parkour.mp4"
     if local.exists():
         return local
     url = os.getenv("BACKGROUND_URL", "").strip()
     if not url:
-        raise RuntimeError("Add an authorised gameplay file at assets/minecraft_parkour.mp4 or set BACKGROUND_URL to a direct authorised MP4/WebM/MOV URL.")
+        raise RuntimeError("Add gameplay clips to assets/gameplay/parkour_*.mp4, add assets/minecraft_parkour.mp4, or set BACKGROUND_URL to a direct authorised MP4/WebM/MOV URL.")
     if not url.lower().split("?")[0].endswith((".mp4", ".webm", ".mov")):
         raise RuntimeError("BACKGROUND_URL must be a direct media-file URL, not a YouTube watch page. Do not scrape YouTube.")
     run(["curl", "-fL", "--retry", "3", "--max-time", "180", "-o", str(local), url])
