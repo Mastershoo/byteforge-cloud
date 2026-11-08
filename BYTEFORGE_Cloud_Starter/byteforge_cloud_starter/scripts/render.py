@@ -37,17 +37,26 @@ def srt_time(seconds):
     total = int(seconds)
     return f"00:{total // 60:02d}:{total % 60:02d},{ms:03d}"
 
-def write_captions(text, path):
+def audio_duration(path):
+    result = subprocess.run(
+        ["ffprobe", "-v", "error", "-show_entries", "format=duration",
+         "-of", "default=noprint_wrappers=1:nokey=1", str(path)],
+        check=True, capture_output=True, text=True
+    )
+    return max(1.0, float(result.stdout.strip()))
+
+def write_captions(text, path, total_duration):
     words = text.split()
     chunks = [" ".join(words[i:i+5]) for i in range(0, len(words), 5)]
+    total_words = max(1, len(words))
     block = []
     cursor = 0.0
     for number, chunk in enumerate(chunks, 1):
-        duration = max(1.0, len(chunk.split()) * 0.36)
-        block.extend([str(number), f"{srt_time(cursor)} --> {srt_time(cursor + duration)}", chunk.upper(), ""])
-        cursor += duration
+        end = total_duration if number == len(chunks) else cursor + total_duration * len(chunk.split()) / total_words
+        block.extend([str(number), f"{srt_time(cursor)} --> {srt_time(end)}", chunk.upper(), ""])
+        cursor = end
     path.write_text("\n".join(block), encoding="utf-8")
-    return cursor
+    return total_duration
 
 def main():
     parser = argparse.ArgumentParser()
