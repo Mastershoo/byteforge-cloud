@@ -40,18 +40,23 @@ jobs:
         working-directory: ${{ steps.project.outputs.dir }}
       - name: Choose story for this run
         id: story
+        env:
+          TOPIC_INDEX: ${{ inputs.topic_index }}
         working-directory: ${{ steps.project.outputs.dir }}
         run: |
-          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
-            echo "index=${{ inputs.topic_index }}" >> "$GITHUB_OUTPUT"
+          if [ "$GITHUB_EVENT_NAME" = "workflow_dispatch" ]; then
+            index="${TOPIC_INDEX:-0}"
+            case "$index" in
+              ''|*[!0-9]*) echo "topic_index must be a non-negative integer"; exit 1 ;;
+            esac
           else
             day=$(date -u +%j)
             hour=$(date -u +%H)
             if [ "$hour" -lt 14 ]; then slot=0; else slot=1; fi
             count=$(python -c "import json; print(len(json.load(open('scripts/topics.json', encoding='utf-8'))))")
             index=$(( (10#$day * 2 + slot) % count ))
-            echo "index=$index" >> "$GITHUB_OUTPUT"
           fi
+          echo "index=$index" >> "$GITHUB_OUTPUT"
       - name: Render one story video
         env:
           BACKGROUND_URL: ${{ vars.BACKGROUND_URL }}
