@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       topic_index:
-        description: "Story index (0-7)"
+        description: "Story index (0-19)"
         required: false
         default: "0"
   schedule:
