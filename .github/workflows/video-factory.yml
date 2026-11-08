@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       topic_index:
-        description: "Starting story index"
+        description: "Story index (0-7)"
         required: false
         default: "0"
   schedule:
@@ -38,15 +38,29 @@ jobs:
       - name: Install dependencies
         run: python -m pip install -r requirements.txt
         working-directory: ${{ steps.project.outputs.dir }}
-      - name: Render two stories
+      - name: Choose story for this run
+        id: story
+        working-directory: ${{ steps.project.outputs.dir }}
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "index=${{ inputs.topic_index }}" >> "$GITHUB_OUTPUT"
+          else
+            day=$(date -u +%j)
+            hour=$(date -u +%H)
+            if [ "$hour" -lt 14 ]; then slot=0; else slot=1; fi
+            count=$(python -c "import json; print(len(json.load(open('scripts/topics.json', encoding='utf-8'))))")
+            index=$(( (10#$day * 2 + slot) % count ))
+            echo "index=$index" >> "$GITHUB_OUTPUT"
+          fi
+      - name: Render one story video
         env:
           BACKGROUND_URL: ${{ vars.BACKGROUND_URL }}
-        run: python scripts/render.py --index "${{ inputs.topic_index || '0' }}" --batch 2
+        run: python scripts/render.py --index "${{ steps.story.outputs.index }}"
         working-directory: ${{ steps.project.outputs.dir }}
-      - name: Upload videos
+      - name: Upload video
         uses: actions/upload-artifact@v4
         with:
-          name: byteforge-story-videos-${{ github.run_number }}
+          name: byteforge-story-video-${{ github.run_number }}
           path: ${{ steps.project.outputs.dir }}/output/*.mp4
           if-no-files-found: error
           retention-days: 14
