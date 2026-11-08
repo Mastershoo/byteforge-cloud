@@ -33,9 +33,21 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y ffmpeg
 
+      - name: Locate project folder
+        id: project
+        run: |
+          REQUIREMENTS=$(find . -type f -name requirements.txt -print -quit)
+          if [ -z "$REQUIREMENTS" ]; then
+            echo "ERROR: requirements.txt was not found."
+            exit 1
+          fi
+          PROJECT_DIR=$(dirname "$REQUIREMENTS")
+          echo "dir=$PROJECT_DIR" >> "$GITHUB_OUTPUT"
+          echo "Found project folder: $PROJECT_DIR"
+
       - name: Install Python packages
-        run: pip install -r requirements.txt
-        working-directory: BYTEFORGE_Cloud_Starter
+        run: python -m pip install -r requirements.txt
+        working-directory: ${{ steps.project.outputs.dir }}
 
       - name: Choose topic
         id: topic
@@ -52,13 +64,13 @@ jobs:
 
       - name: Generate video
         run: python scripts/render.py --index "${{ steps.topic.outputs.index }}"
-        working-directory: BYTEFORGE_Cloud_Starter
+        working-directory: ${{ steps.project.outputs.dir }}
 
       - name: Upload video artifact
         uses: actions/upload-artifact@v4
         with:
           name: byteforge-videos-${{ github.run_number }}
-          path: BYTEFORGE_Cloud_Starter/output/*.mp4
+          path: ${{ steps.project.outputs.dir }}/output/*.mp4
           if-no-files-found: error
           retention-days: 14
 
@@ -66,5 +78,6 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: byteforge-metadata-${{ github.run_number }}
-          path: BYTEFORGE_Cloud_Starter/output/*.json
+          path: ${{ steps.project.outputs.dir }}/output/*.json
+          if-no-files-found: warn
           retention-days: 14
